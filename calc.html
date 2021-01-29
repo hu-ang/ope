@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple Calculator</title>
+        <link rel="stylesheet" href="calc.css">
+    </head>
+    <body>
+        <div>
+            <table class="center">
+                <tr>
+                    <th id="display" colspan="4"></th>
+                </tr>
+                <tr>
+                    <td onclick="calculate(7)">7</td>
+                    <td onclick="calculate(8)">8</td>
+                    <td onclick="calculate(9)">9</td>
+                    <td onclick="calculate('div')">&divide</td>
+                </tr>
+                <tr>
+                    <td onclick="calculate(4)">4</td>
+                    <td onclick="calculate(5)">5</td>
+                    <td onclick="calculate(6)">6</td>
+                    <td onclick="calculate('mul')">&times</td>
+                </tr>
+                <tr>
+                    <td onclick="calculate(1)">1</td>
+                    <td onclick="calculate(2)">2</td>
+                    <td onclick="calculate(3)">3</td>
+                    <td onclick="calculate('sub')">&minus;</td>
+                </tr>
+                <tr>
+                    <td onclick="calculate(-1)">.</td>
+                    <td onclick="calculate(0)">0</td>
+                    <td onclick="calculate('c')">C</td>
+                    <td onclick="calculate('addeq')">+/=</td>
+                </tr>
+            </table>
+        </div>
+        <script src="calculator.js"></script>    
+    </body>
+</html>
