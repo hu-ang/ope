@@ -23,6 +23,10 @@ function calculate(keyID) {
         else if (expression.num1.length >= 10) {
             //stop adding so many digits please
         }
+        else if (expression.num1 === "0") {
+            expression.num1 = keyID.toString();
+            console.log("hello" + keyID.toString())
+        }
         else{
             expression.num1 = expression.num1.concat(keyID);
         }
@@ -49,8 +53,11 @@ function calculate(keyID) {
         else if (-1 === keyID && expression.num2.includes(".")){
             //do nothing, multiple decimals not allowed
         }
-        else if (expression.num1.length >= 10) {
+        else if (expression.num2.length >= 10) {
             //stop adding so many digits please
+        }
+        else if (expression.num2 === "0") {
+            expression.num2 = keyID.toString();
         }
         else{
             expression.num2 = expression.num2.concat(keyID);
