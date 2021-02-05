@@ -36,21 +36,39 @@ export function lives_left(secret, guesses) {
 
 //create the hint/result for the given guess and append to 
 // guessResults (a new array)
-export function guess_results(secret, guessResults, guess) {
+export function guess_results(secret, guesses) {
     //A -> right number right place
     //B -> right number wrong place
     let targetDigits = secret.split('');
-    let guessDigits = guess.split('');
-    let result = "";
-    for (let i = 0; i < guess.length; i++) {
-        if (targetDigits[i] == guessDigits[i]) {
-            result.concat("A");
+    let finalResult = [];
+    for (let gg of guesses) {
+        let guessDigits = gg.split('');
+        let result = "";
+        let numA = 0;
+        let numB = 0;
+        for (let i =0; i < guess.length; i++) {
+            if (targetDigits[i] == guessDigits[i]) {
+                numA++;
+            }
+            else if (targetDigits.includes(guessDigits[i])) {
+                numB++;
+            }
+            else {}
         }
-        else if (targetDigits.includes(guessDigits[i])) {
-            result.concat("B");
-        }
-        else {}
+        result.concat(numA.toString() + "A" + numB.toString() + "B");
     }
-    //setGuessResults(uniq(guessResults.concat(result)));
-    return uniq(guessResults.concat(result));
+    finalResult.concat(result);
+    // let targetDigits = secret.split('');
+    // let guessDigits = guess.split('');
+    // let result = "";
+    // for (let i = 0; i < guess.length; i++) {
+        // if (targetDigits[i] == guessDigits[i]) {
+        //     result.concat("A");
+        // }
+        // else if (targetDigits.includes(guessDigits[i])) {
+        //     result.concat("B");
+        // }
+        // else {}
+    // }
+    // return uniq(guessResults.concat(result));
 }

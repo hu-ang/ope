@@ -4,15 +4,15 @@ import './App.css';
 
 function App() {
   //secret state should be a randomly generated number (4 digits, unique digits)
-  const [secret, _setSecret] = useState("elephant");
+  const [secret, _setSecret] = useState("1234");
   const [guesses, setGuesses] = useState([]);
-  const [guessResults, setGuessResults] = useState([]);
+  //const [guessResults, setGuessResults] = useState([]);
   const [guess, setGuess] = useState("");
 
   //let view = word_view(secret, guesses);
   let bads = bad_guesses(secret, guesses);
   let lives = lives_left(secret, guesses);
-  let results = guess_results(secret, guessResults, guess);
+  let results = guess_results(secret, guesses);
 
   function updateGuess(ev) {
     let text = ev.target.value;
@@ -24,7 +24,7 @@ function App() {
 
   function makeGuess() {
     setGuesses(uniq(guesses.concat(guess)));
-    setGuessResults(guess_results(secret, guessResults, guess));
+    guess_results(secret, guessResults, guess);
     setGuess("");
   }
 
