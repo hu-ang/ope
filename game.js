@@ -41,9 +41,11 @@ export function guess_results(secret, guesses) {
     //B -> right number wrong place
     let targetDigits = secret.split('');
     let finalResult = [];
+    let result = "";
     for (let gg of guesses) {
         let guessDigits = gg.split('');
-        let result = "";
+        // let result = "";
+        result  = "";
         let numA = 0;
         let numB = 0;
         for (let i =0; i < guess.length; i++) {
