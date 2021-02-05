@@ -3,20 +3,6 @@ export function uniq(xs) {
     return Array.from(new Set(xs));
 }
 
-//the view of the current state of guessing 
-// export function word_view(secret, guesses) {
-//     let view = [];
-//     for (let cc of secret.split('')) {
-//         if (guesses.includes(cc)) {
-//             view.push(cc);
-//         }
-//         else {
-//             view.push("_");
-//         }
-//     }
-//     return view;
-// }
-
 //return a set of the invalid guesses made so far
 export function bad_guesses(secret, guesses) {
     let letters = secret.split('');
@@ -46,7 +32,6 @@ export function guess_results(secret, guesses) {
     for (let gg of guesses) {
         console.log(gg);
         let guessDigits = gg.split('');
-        // let result = "";
         result  = "";
         let numA = 0;
         let numB = 0;
@@ -65,17 +50,4 @@ export function guess_results(secret, guesses) {
         finalResult = finalResult.concat(result);
     }
     return finalResult;
-    // let targetDigits = secret.split('');
-    // let guessDigits = guess.split('');
-    // let result = "";
-    // for (let i = 0; i < guess.length; i++) {
-        // if (targetDigits[i] == guessDigits[i]) {
-        //     result.concat("A");
-        // }
-        // else if (targetDigits.includes(guessDigits[i])) {
-        //     result.concat("B");
-        // }
-        // else {}
-    // }
-    // return uniq(guessResults.concat(result));
 }

@@ -6,11 +6,10 @@ function App() {
   //secret state should be a randomly generated number (4 digits, unique digits)
   const [secret, _setSecret] = useState("1234");
   const [guesses, setGuesses] = useState([]);
-  //const [guessResults, setGuessResults] = useState([]);
   const [guess, setGuess] = useState("");
 
   //let view = word_view(secret, guesses);
-  let bads = bad_guesses(secret, guesses);
+  // let bads = bad_guesses(secret, guesses);
   let lives = lives_left(secret, guesses);
   let results = guess_results(secret, guesses);
 
@@ -24,7 +23,6 @@ function App() {
 
   function makeGuess() {
     setGuesses(uniq(guesses.concat(guess)));
-    // guess_results(secret, guesses);
     setGuess("");
   }
 
@@ -47,11 +45,24 @@ function App() {
     );
   }
 
+  if (results.includes("4A0B")) {
+    return (
+      <div className="App">
+        <h1>You Won!</h1>
+        <h1></h1>
+        <p>
+          <button onClick={() => setGuesses([])}>
+            Reset
+          </button>
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       <h1>Guesses: {guesses.join(' ')}</h1>
       <h1>Results: {results.join(' ')}</h1>
-      <h1>Bads: {bads.join(' ')}</h1>
       <h1>Lives: {lives}</h1>
       <p>
         <input type="text"
@@ -69,26 +80,6 @@ function App() {
       </p>
     </div>
   );
-
-
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
 }
 
 export default App;
