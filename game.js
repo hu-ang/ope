@@ -36,7 +36,7 @@ export function guess_results(secret, guesses) {
         let numA = 0;
         let numB = 0;
         for (let i =0; i < gg.length; i++) {
-            if (targetDigits[0][i] == guessDigits[0][i]) {
+            if (targetDigits[i] == guessDigits[i]) {
                 numA++;
             }
             else if (targetDigits.includes(guessDigits[i])) {

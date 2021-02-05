@@ -4,14 +4,25 @@ import './App.css';
 
 function App() {
   //secret state should be a randomly generated number (4 digits, unique digits)
-  const [secret, _setSecret] = useState("1234");
+  const [secret, _setSecret] = useState(randomNumber());
   const [guesses, setGuesses] = useState([]);
   const [guess, setGuess] = useState("");
 
-  //let view = word_view(secret, guesses);
-  // let bads = bad_guesses(secret, guesses);
   let lives = lives_left(secret, guesses);
   let results = guess_results(secret, guesses);
+
+  function randomNumber() {
+    let code = "";
+    for (let i = 0; i <4; i+=0) {
+      let num = Math.floor(Math.random() * 10);
+      if (code.includes(num.toString())) {}
+      else {
+        code.concat(num.toString());
+        i++
+      }
+    }
+    return code;
+  }
 
   function updateGuess(ev) {
     let text = ev.target.value;
@@ -49,7 +60,7 @@ function App() {
     return (
       <div className="App">
         <h1>You Won!</h1>
-        <h1></h1>
+        <h1>Answer: {guesses[guesses.length -1]}</h1>
         <p>
           <button onClick={() => setGuesses([])}>
             Reset
@@ -64,6 +75,7 @@ function App() {
       <h1>Guesses: {guesses.join(' ')}</h1>
       <h1>Results: {results.join(' ')}</h1>
       <h1>Lives: {lives}</h1>
+      <h1>Code: {secret} </h1>
       <p>
         <input type="text"
                value={guess}
