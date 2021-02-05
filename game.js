@@ -35,22 +35,22 @@ export function lives_left(secret, guesses) {
 }
 
 //create the hint/result for the given guess and append to 
-//guessResults (a new array)
-// export function guess_results(secret, guessResults, guess) {
-//     //A -> right number right place
-//     //B -> right number wrong place
-//     let targetDigits = secret.split('');
-//     let guessDigits = guess.split('');
-//     let result = "";
-//     for (let i = 0; i < guess.length; i++) {
-//         if (targetDigits[i] == guessDigits[i]) {
-//             result.concat("A");
-//         }
-//         else if (targetDigits.includes(guessDigits[i])) {
-//             result.concat("B");
-//         }
-//         else {}
-//     }
-//     setGuessResults(uniq(guessResults.concat(result)));
-//     return uniq(guessResults.concat(result));
-// }
+// guessResults (a new array)
+export function guess_results(secret, guessResults, guess) {
+    //A -> right number right place
+    //B -> right number wrong place
+    let targetDigits = secret.split('');
+    let guessDigits = guess.split('');
+    let result = "";
+    for (let i = 0; i < guess.length; i++) {
+        if (targetDigits[i] == guessDigits[i]) {
+            result.concat("A");
+        }
+        else if (targetDigits.includes(guessDigits[i])) {
+            result.concat("B");
+        }
+        else {}
+    }
+    setGuessResults(uniq(guessResults.concat(result)));
+    return uniq(guessResults.concat(result));
+}
