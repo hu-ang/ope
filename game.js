@@ -42,7 +42,7 @@ export function guess_results(secret, guessResults, guess) {
     let targetDigits = secret.split('');
     let guessDigits = guess.split('');
     let result = "";
-    for (i = 0; i < guess.length; i++) {
+    for (let i = 0; i < guess.length; i++) {
         if (targetDigits[i] == guessDigits[i]) {
             result.concat("A");
         }
