@@ -42,13 +42,15 @@ export function guess_results(secret, guesses) {
     let targetDigits = secret.split('');
     let finalResult = [];
     let result = "";
+    console.log(guesses);
     for (let gg of guesses) {
+        console.log(gg);
         let guessDigits = gg.split('');
         // let result = "";
         result  = "";
         let numA = 0;
         let numB = 0;
-        for (let i =0; i < guess.length; i++) {
+        for (let i =0; i < gg.length; i++) {
             if (targetDigits[i] == guessDigits[i]) {
                 numA++;
             }
@@ -58,9 +60,11 @@ export function guess_results(secret, guesses) {
             else {}
         }
         result.concat(numA.toString() + "A" + numB.toString() + "B");
+        console.log(result);
+
         finalResult = finalResult.concat(result);
     }
-    return finalResult;
+    return uniq(finalResult);
     // let targetDigits = secret.split('');
     // let guessDigits = guess.split('');
     // let result = "";
