@@ -51,7 +51,7 @@ export function guess_results(secret, guesses) {
         let numA = 0;
         let numB = 0;
         for (let i =0; i < gg.length; i++) {
-            if (targetDigits[i] == guessDigits[i]) {
+            if (targetDigits[0][i] == guessDigits[0][i]) {
                 numA++;
             }
             else if (targetDigits.includes(guessDigits[i])) {
@@ -59,12 +59,12 @@ export function guess_results(secret, guesses) {
             }
             else {}
         }
-        result.concat(numA.toString() + "A" + numB.toString() + "B");
+        result = result.concat(numA.toString() + "A" + numB.toString() + "B");
         console.log(result);
 
         finalResult = finalResult.concat(result);
     }
-    return uniq(finalResult);
+    return finalResult;
     // let targetDigits = secret.split('');
     // let guessDigits = guess.split('');
     // let result = "";
