@@ -17,7 +17,7 @@ function App() {
       let num = Math.floor(Math.random() * 10);
       if (code.includes(num.toString())) {}
       else {
-        code.concat(num.toString());
+        code = code.concat(num.toString());
         i++
       }
     }
