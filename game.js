@@ -28,9 +28,7 @@ export function guess_results(secret, guesses) {
     let targetDigits = secret.split('');
     let finalResult = [];
     let result = "";
-    console.log(guesses);
     for (let gg of guesses) {
-        console.log(gg);
         let guessDigits = gg.split('');
         result  = "";
         let numA = 0;
@@ -45,8 +43,6 @@ export function guess_results(secret, guesses) {
             else {}
         }
         result = result.concat(numA.toString() + "A" + numB.toString() + "B");
-        console.log(result);
-
         finalResult = finalResult.concat(result);
     }
     return finalResult;

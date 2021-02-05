@@ -3,7 +3,6 @@ import { uniq, bad_guesses, lives_left, guess_results } from './game';
 import './App.css';
 
 function App() {
-  //secret state should be a randomly generated number (4 digits, unique digits)
   const [secret, _setSecret] = useState(randomNumber());
   const [guesses, setGuesses] = useState([]);
   const [guess, setGuess] = useState("");
@@ -11,6 +10,7 @@ function App() {
   let lives = lives_left(secret, guesses);
   let results = guess_results(secret, guesses);
 
+  //generate a random 4-digit number with unique digits
   function randomNumber() {
     let code = "";
     for (let i = 0; i <4; i+=0) {
@@ -75,7 +75,6 @@ function App() {
       <h1>Guesses: {guesses.join(' ')}</h1>
       <h1>Results: {results.join(' ')}</h1>
       <h1>Lives: {lives}</h1>
-      <h1>Code: {secret} </h1>
       <p>
         <input type="text"
                value={guess}
