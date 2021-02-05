@@ -24,7 +24,7 @@ function App() {
 
   function makeGuess() {
     setGuesses(uniq(guesses.concat(guess)));
-    setGuessResults(results);
+    setGuessResults(guess_results(secret, guessResults, guess));
     setGuess("");
   }
 
