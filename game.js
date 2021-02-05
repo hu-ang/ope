@@ -58,8 +58,9 @@ export function guess_results(secret, guesses) {
             else {}
         }
         result.concat(numA.toString() + "A" + numB.toString() + "B");
+        finalResult = finalResult.concat(result);
     }
-    finalResult.concat(result);
+    return finalResult;
     // let targetDigits = secret.split('');
     // let guessDigits = guess.split('');
     // let result = "";
