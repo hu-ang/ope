@@ -3,7 +3,7 @@ import { uniq, bad_guesses, lives_left, guess_results } from './game';
 import './App.css';
 
 function App() {
-  const [secret, _setSecret] = useState(randomNumber());
+  const [secret, setSecret] = useState(randomNumber());
   const [guesses, setGuesses] = useState([]);
   const [guess, setGuess] = useState("");
 
@@ -22,6 +22,12 @@ function App() {
       }
     }
     return code;
+  }
+
+  //reset the game with a new secret code
+  function resetGame() {
+    setGuesses([]);
+    setSecret(randomNumber());
   }
 
   function updateGuess(ev) {
@@ -75,6 +81,7 @@ function App() {
       <h1>Guesses: {guesses.join(' ')}</h1>
       <h1>Results: {results.join(' ')}</h1>
       <h1>Lives: {lives}</h1>
+      <h1>Code: {secret}</h1>
       <p>
         <input type="text"
                value={guess}
@@ -85,7 +92,7 @@ function App() {
         </button>
       </p>
       <p>
-        <button onClick={() => setGuesses([])}>
+        <button onClick={() => resetGame()}>
           Reset
         </button>
       </p>
