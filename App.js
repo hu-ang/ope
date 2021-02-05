@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { uniq, bad_guesses, word_view, lives_left, guess_results } from './game';
+import { uniq, bad_guesses, lives_left } from './game';
 import './App.css';
 
 function App() {
@@ -68,6 +68,25 @@ function App() {
       </p>
     </div>
   );
+
+  function guess_results(secret, guessResults, guess) {
+    //A -> right number right place
+    //B -> right number wrong place
+    let targetDigits = secret.split('');
+    let guessDigits = guess.split('');
+    let result = "";
+    for (let i = 0; i < guess.length; i++) {
+        if (targetDigits[i] == guessDigits[i]) {
+            result.concat("A");
+        }
+        else if (targetDigits.includes(guessDigits[i])) {
+            result.concat("B");
+        }
+        else {}
+    }
+    setGuessResults(uniq(guessResults.concat(result)));
+    return uniq(guessResults.concat(result));
+}
 
   // return (
   //   <div className="App">
