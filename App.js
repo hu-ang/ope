@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { uniq, bad_guesses, word_view, lives_left } from './game';
+import { uniq, bad_guesses, word_view, lives_left, guess_results } from './game';
 import './App.css';
 
 function App() {
