@@ -51,6 +51,6 @@ export function guess_results(secret, guessResults, guess) {
         }
         else {}
     }
-    setGuessResults(uniq(guessResults.concat(result)));
+    //setGuessResults(uniq(guessResults.concat(result)));
     return uniq(guessResults.concat(result));
 }
