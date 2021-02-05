@@ -3,17 +3,20 @@ import { uniq, bad_guesses, word_view, lives_left } from './game';
 import './App.css';
 
 function App() {
+  //secret state should be a randomly generated number (4 digits, unique digits)
   const [secret, _setSecret] = useState("elephant");
   const [guesses, setGuesses] = useState([]);
+  const [guessResults, setGuessResults] = useState([]);
   const [guess, setGuess] = useState("");
 
-  let view = word_view(secret, guesses);
+  //let view = word_view(secret, guesses);
   let bads = bad_guesses(secret, guesses);
   let lives = lives_left(secret, guesses);
+  let results = guess_results(secret, guessResults, guess);
 
   function updateGuess(ev) {
     let text = ev.target.value;
-    if (text.length > 1) {
+    if (text.length > 4) {
       text = text[0];
     }
     setGuess(text);
@@ -45,8 +48,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Word: {view.join(' ')}</h1>
       <h1>Guesses: {guesses.join(' ')}</h1>
+      <h1>Results: {results.join(' ')}</h1>
       <h1>Bads: {bads.join(' ')}</h1>
       <h1>Lives: {lives}</h1>
       <p>
