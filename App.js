@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { uniq, bad_guesses, lives_left, guess_results } from './game';
 import './App.css';
-
+//the bulk of this code except for the results variable and randomNumber(), resetGame(), and other couple-line
+//and minor changes were borrowed from the lecture notes! Same with game.js.
 function App() {
   const [secret, setSecret] = useState(randomNumber());
   const [guesses, setGuesses] = useState([]);
@@ -11,6 +12,7 @@ function App() {
   let results = guess_results(secret, guesses);
 
   //generate a random 4-digit number with unique digits
+  //the number is allowed to start with 0
   function randomNumber() {
     let code = "";
     for (let i = 0; i <4; i+=0) {
@@ -105,7 +107,7 @@ function App() {
           Guess
         </button>
       </p>
-      <h3><i>Only input numbers with 4 digits</i></h3>
+      <h6><i>Only input numbers with 4 digits</i></h6>
       <p>
         <button onClick={() => resetGame()}>
           Reset
