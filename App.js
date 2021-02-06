@@ -32,16 +32,23 @@ function App() {
 
   function updateGuess(ev) {
     let text = ev.target.value;
-    let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    if (text.length > 4 || alphabet.includes(text.charAt(text.length -1))) {
+    if (text.length > 4) {
       text = text.substring(0, 4);
+    }
+    if (alphabet.includes(text.charAt(text.length -1))) {
+      text = text.substring(0, text.length);
     }
     setGuess(text);
   }
 
   function makeGuess() {
-    setGuesses(uniq(guesses.concat(guess)));
-    setGuess("");
+    if (guess.length < 4) {
+
+    }
+    else {
+      setGuesses(uniq(guesses.concat(guess)));
+      setGuess("");
+    }
   }
 
   function keypress(ev) {
@@ -92,7 +99,7 @@ function App() {
         </table>
       </p>
       <p>
-        <input type="number"
+        <input type="text"
                value={guess}
                onChange={updateGuess}
                onKeyPress={keypress} />
