@@ -83,7 +83,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Lives: {lives}</h1>
+      <h1>Bulls and Cows</h1>
+      <h2>Lives: {lives}</h2>
       <p>
         <table class="center">
           <tr>
@@ -104,6 +105,7 @@ function App() {
           Guess
         </button>
       </p>
+      <h3><i>Only input numbers with 4 digits</i></h3>
       <p>
         <button onClick={() => resetGame()}>
           Reset
