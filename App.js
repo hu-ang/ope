@@ -88,10 +88,9 @@ function App() {
             <th>Guesses</th>
             <th>Results</th>
           </tr> 
-          <td>{guesses.map((value, index) => {
-            return <tr><td>{guess[index]}</td><td>{results[index]}</td></tr>
-          })}</td>
-          <td>{results}</td>
+          <div>{guesses.map((value, index) => {
+            return <tr><td>{value}</td><td>{results[index]}</td></tr>
+          })}</div>
         </table>
       </p>
       <p>
