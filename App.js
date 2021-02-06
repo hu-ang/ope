@@ -33,7 +33,7 @@ function App() {
   function updateGuess(ev) {
     let text = ev.target.value;
     if (text.length > 4) {
-      text = text[0];
+      text = text.substring(0, 4);
     }
     setGuess(text);
   }
@@ -54,7 +54,7 @@ function App() {
       <div className="App">
         <h1>Game Over</h1>
         <p>
-          <button onClick={() => setGuesses([])}>
+          <button onClick={() => resetGame()}>
             Reset
           </button>
         </p>
@@ -68,7 +68,7 @@ function App() {
         <h1>You Won!</h1>
         <h1>Answer: {guesses[guesses.length -1]}</h1>
         <p>
-          <button onClick={() => setGuesses([])}>
+          <button onClick={() => resetGame()}>
             Reset
           </button>
         </p>
