@@ -92,7 +92,7 @@ function App() {
         </table>
       </p>
       <p>
-        <input type="text"
+        <input type="number"
                value={guess}
                onChange={updateGuess}
                onKeyPress={keypress} />
