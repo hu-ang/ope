@@ -32,7 +32,8 @@ function App() {
 
   function updateGuess(ev) {
     let text = ev.target.value;
-    if (text.length > 4) {
+    let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (text.length > 4 || alphabet.includes(text.charAt(text.length -1))) {
       text = text.substring(0, 4);
     }
     setGuess(text);
@@ -78,19 +79,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Guesses: {guesses.join(' ')}</h1>
-      <h1>Results: {results.join(' ')}</h1>
       <h1>Lives: {lives}</h1>
-      <h1>Code: {secret}</h1>
       <p>
         <table class="center">
           <tr>
             <th>Guesses</th>
             <th>Results</th>
           </tr> 
-          <div>{guesses.map((value, index) => {
+          {guesses.map((value, index) => {
             return <tr><td>{value}</td><td>{results[index]}</td></tr>
-          })}</div>
+          })}
         </table>
       </p>
       <p>
