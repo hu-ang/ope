@@ -35,9 +35,6 @@ function App() {
     if (text.length > 4) {
       text = text.substring(0, 4);
     }
-    if (alphabet.includes(text.charAt(text.length -1))) {
-      text = text.substring(0, text.length);
-    }
     setGuess(text);
   }
 
@@ -99,7 +96,7 @@ function App() {
         </table>
       </p>
       <p>
-        <input type="text"
+        <input type="number"
                value={guess}
                onChange={updateGuess}
                onKeyPress={keypress} />
