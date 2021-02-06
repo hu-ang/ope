@@ -43,6 +43,23 @@ function App() {
     setGuess("");
   }
 
+  function createTable() {
+    let data = [guesses, results];
+    return( 
+    <table>
+      <tbody>
+        {
+          this.data.map((numList, i) => (
+            <tr key={i}>
+              {numList.map((num, j) => 
+              <td key={j}>{num}</td>)}
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+    )}
+
   function keypress(ev) {
     if (ev.key == "Enter") {
       makeGuess();
@@ -82,6 +99,16 @@ function App() {
       <h1>Results: {results.join(' ')}</h1>
       <h1>Lives: {lives}</h1>
       <h1>Code: {secret}</h1>
+      <p>{createTable()}</p>
+      <table>
+        <tr>
+          <th>Guesses</th>
+          <th>Results</th>
+        </tr>
+        for (let i = 0; i < guesses.length; i ++) {
+
+        }
+      </table>
       <p>
         <input type="text"
                value={guess}
