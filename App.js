@@ -100,15 +100,6 @@ function App() {
       <h1>Lives: {lives}</h1>
       <h1>Code: {secret}</h1>
       <p>{createTable()}</p>
-      <table>
-        <tr>
-          <th>Guesses</th>
-          <th>Results</th>
-        </tr>
-        for (let i = 0; i < guesses.length; i ++) {
-
-        }
-      </table>
       <p>
         <input type="text"
                value={guess}
