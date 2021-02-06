@@ -83,7 +83,7 @@ function App() {
       <h1>Lives: {lives}</h1>
       <h1>Code: {secret}</h1>
       <p>
-        <table>
+        <table class="center">
           <tr>
             <th>Guesses</th>
             <th>Results</th>

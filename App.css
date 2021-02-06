@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+table {
+  border: 1px solid black;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+td, th {
+  max-width: 150px;
+  word-wrap: break-word;
+}
